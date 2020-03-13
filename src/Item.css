@@ -1,0 +1,27 @@
+.item {
+    padding: 10px;
+}
+
+.list:nth-child(even){
+    background-color: rgb(255, 255, 182);
+}
+
+h3 {
+    cursor: pointer;
+    margin: 0;
+}
+
+.desc {
+    max-height: 0;
+    opacity: 0;
+    transition: all 1s;
+    overflow: hidden;
+    margin: 0;
+}
+
+.visible {
+    max-height: 1000px;
+    opacity: 1;
+    transition: all 1s;
+    padding: 10px 0;
+}

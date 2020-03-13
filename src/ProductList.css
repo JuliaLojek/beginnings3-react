@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+}
+
+.item, h2, form {
+    padding: 16px;
+}
+
+.container div:nth-of-type(even) {
+    background-color: rgb(254, 255, 212);
+}
