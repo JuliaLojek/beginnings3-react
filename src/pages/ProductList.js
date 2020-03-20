@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Data from './Data';
+import Data from '../Data';
 import './ProductList.css';
 
 const ProductList = () => {
@@ -31,13 +31,13 @@ const ProductList = () => {
 
     return (
         <div className="container">
-            <h2>Lista produktów</h2>
+            <h2>Our products:</h2>
             <form onSubmit={filterProducts}>
-                <label htmlFor="name">Nazwa: </label>
+                <label htmlFor="name">name: </label>
                 <input id="name" name="name" type="text" value={searchValue} onChange={handleChangeValue}></input>
                 <br />
                 <br />
-                <label htmlFor="category">Kategoria: </label>
+                <label htmlFor="category">category: </label>
                 <select id="category" name="category" value={searchCategory} onChange={handleChangeCategory}>
                     <option value="">wszystkie</option>
                     <option value="1">1</option>
@@ -50,7 +50,7 @@ const ProductList = () => {
                 </select>
                 <br />
                 <br />
-                <input type="submit" value="szukaj!"></input>
+                <input type="submit" value="search"></input>
             </form>
             {searchValue === "" ? renderProducts(Data) : renderProducts(searchResult)}
         </div>

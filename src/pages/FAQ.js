@@ -1,8 +1,9 @@
 import React from 'react';
-import Item from './Item';
+import FAQList from '../DataFAQ';
+import Item from '../components/Item';
 
-const ItemList = (props) => {
-    return props.list.map(el => {
+const FAQ = () => {
+    return FAQList.map(el => {
         return (
             <Item 
                 title = {el.title}
@@ -13,4 +14,4 @@ const ItemList = (props) => {
     });
 };
 
-export default ItemList;
+export default FAQ;

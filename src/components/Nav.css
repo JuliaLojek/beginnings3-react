@@ -1,0 +1,13 @@
+.navigation-box {
+    background-color: rgb(191, 241, 224);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 16px;
+}

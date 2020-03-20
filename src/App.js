@@ -1,40 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import ItemList from './ItemList';
-import ProductList from './ProductList';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Home from './pages/Home';
+import ProductList from './pages/ProductList';
+import Product from './pages/Product';
+import FAQ from './pages/FAQ';
+import Default from './pages/Default';
 
-const list = [{
-  title: "Important question 1",
-  description: "Very long description about the answet to the very important question 1"
-},
-{
-  title: "Important question 2",
-  description: "Very long description about the answet to the very important question 2"
-},
-{
-  title: "Important question 3",
-  description: "Very long description about the answet to the very important question 3"
-},
-{
-  title: "Important question 4",
-  description: "Very long description about the answet to the very important question 4"
-},
-{
-  title: "Important question 5",
-  description: "Very long description about the answet to the very important question 5"
-},
-{
-  title: "Important question 6",
-  description: "Very long description about the answet to the very important question 6"
-}];
+const App = () => {
+  const [loggedIn, setloggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const changeUsername = (e) => setUsername(e.target.value);
+  const clearUsername = () => setUsername("");
 
-function App() {
   return (
     <div className="App">
-      <ProductList />
-      <ItemList 
-        list = {list}
-      />
+      <BrowserRouter>
+        <Nav
+          loggedIn={loggedIn}
+          toggleLog={() => setloggedIn((loggedIn) => !loggedIn)}
+          username={username}
+          changeUsername={changeUsername}
+          clearUsername={clearUsername}
+        />
+        <Switch>
+            <Route exact path="/" render={(props) => <Home {...props} loggedIn={loggedIn} username={username} />} />
+            <Route path="/products" component={ProductList} />
+            <Route path="/product/:id" component={Product} />
+            <Route path="/faq" component={FAQ} />
+            <Route component={Default} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
